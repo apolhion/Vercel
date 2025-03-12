@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { ShoppingCart } from "lucide-react";
+import { useCountdown } from '@/contexts/CountdownContext';
 
 const names = [
   "Beatriz Almeida",
@@ -37,11 +38,14 @@ const names = [
   "Vinícius Rocha"
 ];
 
-
 export function PurchaseNotification() {
   const { toast } = useToast();
+  const { unitsLeft } = useCountdown();
 
   useEffect(() => {
+    // Só continua se ainda tiver mais de 9 unidades
+    if (unitsLeft <= 9) return;
+
     const showRandomPurchase = () => {
       const randomName = names[Math.floor(Math.random() * names.length)];
       const now = new Date();
@@ -77,7 +81,7 @@ export function PurchaseNotification() {
       clearTimeout(initialTimeout);
       clearInterval(interval);
     };
-  }, [toast]);
+  }, [toast, unitsLeft]); // Adicionado unitsLeft como dependência
 
   return null;
 }

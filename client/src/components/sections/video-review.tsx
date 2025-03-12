@@ -25,7 +25,7 @@ export const VideoReview = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-16 bg-white">
+    <div className="container mx-auto px-4 bg-white">
       <Card className="border border-gray-100 hover:shadow-lg transition-shadow duration-300">
         <div className="p-6">
           <div className="flex items-center mb-4">
