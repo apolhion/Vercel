@@ -13,12 +13,13 @@ export default function Home() {
     <div className="min-h-screen">
       <Nav />
       <Hero />
+       <Pricing />
       <Design />
       <Display />
       <CameraSection />
       <Performance />
       <Limited />
-      <Pricing />
+ 
       <Footer />
     </div>
   );

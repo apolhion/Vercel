@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { AnimatedSection } from "../shared/animated-section";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,23 @@ import {
 export function Pricing() {
   const [isLoading, setIsLoading] = useState(false);
   const [, setLocation] = useLocation();
+  const [unitsLeft, setUnitsLeft] = useState(20);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+
+    if (unitsLeft > 9) {
+      interval = setInterval(() => {
+        setUnitsLeft(prev => prev - 1);
+      }, 5000);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [unitsLeft]);
 
   const handlePurchase = () => {
     setIsLoading(true);
@@ -70,9 +87,12 @@ export function Pricing() {
             <h2 className="text-4xl font-bold mb-4">
               Garanta o Seu Hoje
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 mb-4">
               Quantidades limitadas disponíveis
             </p>
+            <div className="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full font-semibold text-lg animate-pulse">
+              Apenas {unitsLeft} unidades disponíveis!
+            </div>
           </div>
 
           <div className="max-w-md mx-auto">

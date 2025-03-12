@@ -98,9 +98,9 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.7 }}
             >
-               <a href="#camera">
+               <a href="#pricing">
               <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-lg rounded-md">
-                Saiba mais
+                Comprar Agora
               </Button>
                </a>
             </motion.div>
