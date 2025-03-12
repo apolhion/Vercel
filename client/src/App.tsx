@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Checkout from "@/pages/checkout";
 import { PurchaseNotification } from "@/components/shared/purchase-notification";
+import { CountdownProvider } from "./contexts/CountdownContext";
 
 function Router() {
   return (
@@ -20,9 +21,11 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router />
-      <PurchaseNotification />
-      <Toaster />
+      <CountdownProvider>
+        <Router />
+        <PurchaseNotification />
+        <Toaster />
+      </CountdownProvider>
     </QueryClientProvider>
   );
 }

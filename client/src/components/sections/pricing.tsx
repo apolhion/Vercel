@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import { AnimatedSection } from "../shared/animated-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { LoadingOverlay } from "../shared/loading-overlay";
+import { useCountdown } from "@/contexts/CountdownContext";
 import {
   Carousel,
   CarouselContent,
@@ -15,23 +16,7 @@ import {
 export function Pricing() {
   const [isLoading, setIsLoading] = useState(false);
   const [, setLocation] = useLocation();
-  const [unitsLeft, setUnitsLeft] = useState(20);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-
-    if (unitsLeft > 9) {
-      interval = setInterval(() => {
-        setUnitsLeft(prev => prev - 1);
-      }, 5000);
-    }
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [unitsLeft]);
+  const { unitsLeft } = useCountdown();
 
   const handlePurchase = () => {
     setIsLoading(true);
