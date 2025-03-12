@@ -82,13 +82,13 @@ export function Pricing() {
 
           <div className="max-w-md mx-auto">
             <Card className="relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg">
-                Edição Limitada
+              <div className="absolute text-sm top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg">
+                QUEIMA DE ESTOQUE 🔥
               </div>
 
               <CardHeader>
                 <CardTitle className="text-3xl font-bold text-center">
-                  realme 10 Pro
+                  Realme 10 Pro
                   <span className="block text-xl mt-1">Edição Coca-Cola</span>
                 </CardTitle>
               </CardHeader>
