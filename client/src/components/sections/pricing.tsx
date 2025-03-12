@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { AnimatedSection } from "../shared/animated-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,12 +7,13 @@ import { LoadingOverlay } from "../shared/loading-overlay";
 
 export function Pricing() {
   const [isLoading, setIsLoading] = useState(false);
+  const [, setLocation] = useLocation();
 
   const handlePurchase = () => {
     setIsLoading(true);
     // Simulate a small delay before redirecting
     setTimeout(() => {
-      window.location.href = "https://pay.lojasrossi.com/6YQPgjJP1EAgpxz";
+      setLocation("/checkout");
     }, 2000);
   };
 
