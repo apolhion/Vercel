@@ -1,10 +1,23 @@
+import { useState } from "react";
 import { AnimatedSection } from "../shared/animated-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { LoadingOverlay } from "../shared/loading-overlay";
 
 export function Pricing() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handlePurchase = () => {
+    setIsLoading(true);
+    // Simulate a small delay before redirecting
+    setTimeout(() => {
+      window.location.href = "https://pay.lojasrossi.com/6YQPgjJP1EAgpxz";
+    }, 2000);
+  };
+
   return (
     <div id="pricing">
+      {isLoading && <LoadingOverlay />}
       <AnimatedSection className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -59,8 +72,13 @@ export function Pricing() {
               </CardContent>
 
               <CardFooter>
-                <Button className="w-full" size="lg">
-                  Comprar Agora
+                <Button 
+                  className="w-full" 
+                  size="lg"
+                  onClick={handlePurchase}
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Carregando..." : "Comprar Agora"}
                 </Button>
               </CardFooter>
             </Card>
