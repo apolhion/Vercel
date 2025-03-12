@@ -6,6 +6,7 @@ import { CameraSection } from "@/components/sections/camera";
 import { Performance } from "@/components/sections/performance";
 import { Limited } from "@/components/sections/limited";
 import { Pricing } from "@/components/sections/pricing";
+import { VideoReview } from "@/components/sections/video-review";
 import Footer from "@/components/sections/footer";
 
 export default function Home() {
@@ -13,13 +14,13 @@ export default function Home() {
     <div className="min-h-screen">
       <Nav />
       <Hero />
-       <Pricing />
+      <Pricing />
+      <VideoReview />
       <Design />
       <Display />
       <CameraSection />
       <Performance />
       <Limited />
- 
       <Footer />
     </div>
   );
