@@ -22,7 +22,7 @@ export function Pricing() {
     setIsLoading(true);
     // Simulate a small delay before redirecting
     setTimeout(() => {
-      setLocation("https://pay.realmeoferta.com/P5LNZ8J4E04gaRy");
+      window.location.href = "https://pay.realmeoferta.com/P5LNZ8J4E04gaRy";
     }, 2000);
   };
 
