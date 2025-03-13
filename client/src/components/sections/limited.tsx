@@ -1,7 +1,8 @@
 import { AnimatedSection } from "../shared/animated-section";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
-function Limited() {
+export function Limited() {
   return (
     <div id="limited">
       <AnimatedSection className="py-24 bg-white">
@@ -17,6 +18,7 @@ function Limited() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
+
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-semibold mb-3">
@@ -51,5 +53,3 @@ function Limited() {
     </div>
   );
 }
-
-export default Limited;

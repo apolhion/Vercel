@@ -2,7 +2,7 @@ import { AnimatedSection } from "../shared/animated-section";
 import { Battery, Cpu, Wifi } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
-function Performance() {
+export function Performance() {
   return (
     <div id="performance">
       <AnimatedSection className="py-24 bg-gray-50">
@@ -17,7 +17,7 @@ function Performance() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
               <Cpu className="h-8 w-8 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-4">Processador Snapdragon</h3>
               <p className="text-gray-600 mb-4">
@@ -26,7 +26,7 @@ function Performance() {
               <Progress value={100} className="h-2" />
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
               <Battery className="h-8 w-8 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-4">Bateria 5000mAh</h3>
               <p className="text-gray-600 mb-4">
@@ -35,7 +35,7 @@ function Performance() {
               <Progress value={100} className="h-2" />
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
               <Wifi className="h-8 w-8 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-4">Conectividade 5G</h3>
               <p className="text-gray-600 mb-4">
@@ -49,5 +49,3 @@ function Performance() {
     </div>
   );
 }
-
-export default Performance;

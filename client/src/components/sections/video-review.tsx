@@ -1,8 +1,9 @@
+
 import { Card } from "@/components/ui/card"
 import { Play } from "lucide-react"
 import { useEffect, useRef } from "react"
 
-function VideoReview() {
+export const VideoReview = () => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function VideoReview() {
             </div>
             <h3 className="text-lg font-medium text-gray-800 ml-3">Review em Vídeo</h3>
           </div>
-
+          
           <div className="relative rounded-lg overflow-hidden shadow-lg">
             <div 
               ref={videoContainerRef}
@@ -51,8 +52,7 @@ function VideoReview() {
                   height: "100%", 
                   objectFit: "cover" 
                 }} 
-                loading="lazy"
-                alt="Video thumbnail" 
+                alt="thumbnail" 
               />
               <div 
                 id="backdrop_67d21d8a32378af32d35bb09" 
@@ -72,5 +72,3 @@ function VideoReview() {
     </div>
   )
 }
-
-export default VideoReview;

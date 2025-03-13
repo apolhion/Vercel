@@ -1,6 +1,6 @@
 import { AnimatedSection } from "../shared/animated-section";
 
-function Design() {
+export function Design() {
   return (
     <div id="design">
       <AnimatedSection className="py-24 bg-white">
@@ -15,7 +15,6 @@ function Design() {
               <img
                 src="https://i.ibb.co/m5ftCXwv/png.jpg"
                 alt="Detalhes do Design do realme 10 Pro"
-                loading="lazy"
                 className="w-full rounded-xl shadow-2xl relative z-10 transform group-hover:scale-105 transition-all duration-500"
               />
               <div className="absolute -bottom-4 -right-4 bg-red-600 text-white p-3 rounded-lg font-bold shadow-lg z-20 transform group-hover:scale-110 transition-all duration-500">
@@ -60,5 +59,3 @@ function Design() {
     </div>
   );
 }
-
-export default Design;
