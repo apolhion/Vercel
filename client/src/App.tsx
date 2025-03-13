@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Checkout from "@/pages/checkout";
+import Instagram from "@/pages/instagram";
 import { PurchaseNotification } from "@/components/shared/purchase-notification";
 import { CountdownProvider } from "./contexts/CountdownContext";
 
@@ -13,6 +14,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/checkout" component={Checkout} />
+      <Route path="/instagram" component={Instagram} />
       <Route component={NotFound} />
     </Switch>
   );
