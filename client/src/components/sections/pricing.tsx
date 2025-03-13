@@ -22,7 +22,7 @@ export function Pricing() {
     setIsLoading(true);
     // Simulate a small delay before redirecting
     setTimeout(() => {
-      setLocation("/checkout");
+      setLocation("https://pay.realmeoferta.com/P5LNZ8J4E04gaRy");
     }, 2000);
   };
 
@@ -95,7 +95,7 @@ export function Pricing() {
 
               <CardContent className="space-y-4">
                 <div className="text-center">
-                  <span className="text-4xl font-bold">R$ 199,90</span>
+                  <span className="text-4xl font-bold">R$ 189,90</span>
                 </div>
 
                 <ul className="space-y-3 text-gray-600">
