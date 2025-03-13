@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export function Pricing() {
+function Pricing() {
   const [isLoading, setIsLoading] = useState(false);
   const [, setLocation] = useLocation();
   const { unitsLeft } = useCountdown();
@@ -38,6 +38,7 @@ export function Pricing() {
                   <img
                     src="https://i.ibb.co/bt5JD1f/produto1.jpg"
                     alt="Realme 10 Pro Coca-Cola Edition - Vista 1"
+                    loading="lazy"
                     className="w-full h-[400px] object-cover rounded-lg"
                   />
                 </CarouselItem>
@@ -45,6 +46,7 @@ export function Pricing() {
                   <img
                     src="https://i.ibb.co/4wwPqMGY/produto2.jpg"
                     alt="Realme 10 Pro Coca-Cola Edition - Vista 2"
+                    loading="lazy"
                     className="w-full h-[400px] object-cover rounded-lg"
                   />
                 </CarouselItem>
@@ -52,6 +54,7 @@ export function Pricing() {
                   <img
                     src="https://i.ibb.co/S7tKGSG7/produto3.jpg"
                     alt="Realme 10 Pro Coca-Cola Edition - Vista 3"
+                    loading="lazy"
                     className="w-full h-[400px] object-cover rounded-lg"
                   />
                 </CarouselItem>
@@ -59,6 +62,7 @@ export function Pricing() {
                   <img
                     src="https://i.ibb.co/mVwHhf42/produto4.jpg"
                     alt="Realme 10 Pro Coca-Cola Edition - Vista 4"
+                    loading="lazy"
                     className="w-full h-[400px] object-cover rounded-lg"
                   />
                 </CarouselItem>
@@ -139,3 +143,5 @@ export function Pricing() {
     </div>
   );
 }
+
+export default Pricing;

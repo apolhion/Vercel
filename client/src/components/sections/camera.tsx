@@ -1,7 +1,7 @@
 import { Camera as CameraIcon, Image, Aperture } from "lucide-react";
 import { AnimatedSection } from "../shared/animated-section";
 
-export function CameraSection() {
+function CameraSection() {
   return (
     <div id="camera">
       <AnimatedSection className="py-24 bg-white">
@@ -53,12 +53,13 @@ export function CameraSection() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative order-1 md:order-2">
               <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 to-red-700/20 rounded-full blur-xl"></div>
               <img 
                 src="https://i.ibb.co/nsQjMKP7/foto108.jpg" 
                 alt="Amostra de foto da câmera de 108MP" 
+                loading="lazy"
                 className="rounded-lg shadow-2xl border-4 border-white transform rotate-3"
               />
               <div className="absolute -bottom-4 -right-4 bg-white text-red-600 p-2 rounded-lg font-bold shadow-lg">
@@ -71,3 +72,5 @@ export function CameraSection() {
     </div>
   );
 }
+
+export default CameraSection;

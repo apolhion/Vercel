@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { lazy, Suspense } from "react";
 
 const bubbleImages = [
   "/bolha1.png",
@@ -9,14 +10,17 @@ const bubbleImages = [
   "/bolha6.png",
   "/bolha7.png",
   "/bolha1-transaparecida.png",
-];
+].map((src) => ({
+  src,
+  loading: "lazy" as const,
+}));
 
 const floatAnimation = {
   y: [-10, 10],
   transition: {
     duration: 2,
     repeat: Infinity,
-    repeatType: "mirror",
+    repeatType: "mirror" as const,
     ease: "easeInOut"
   }
 };
@@ -25,12 +29,14 @@ interface BubbleProps {
   src: string;
   className: string;
   delay?: number;
+  loading?: "lazy" | "eager";
 }
 
-const Bubble = ({ src, className, delay = 0 }: BubbleProps) => (
+const Bubble = ({ src, className, delay = 0, loading = "lazy" }: BubbleProps) => (
   <motion.img
     src={src}
     alt="Bubble"
+    loading={loading}
     className={`absolute w-16 h-16 object-contain ${className}`}
     initial={{ opacity: 0 }}
     animate={{ 
@@ -51,22 +57,24 @@ export function Hero() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-red-900 via-red-800 to-black">
       <div 
-        className="absolute inset-0 opacity-30 mix-blend-overlay"
+        className="absolute inset-0 opacity-30 mix-blend-overlay bg-cover bg-center"
         style={{
           backgroundImage: `url(/backgroundgeral.jpg)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
         }}
       />
 
       {/* Floating Bubbles */}
-      <Bubble src={bubbleImages[0]} className="top-20 left-[10%]" />
-      <Bubble src={bubbleImages[1]} className="top-40 right-[15%]" delay={0.5} />
-      <Bubble src={bubbleImages[2]} className="bottom-32 left-[20%]" delay={1} />
-      <Bubble src={bubbleImages[3]} className="top-60 right-[25%]" delay={1.5} />
-      <Bubble src={bubbleImages[4]} className="bottom-40 right-[30%]" delay={2} />
-      <Bubble src={bubbleImages[5]} className="top-80 left-[30%]" delay={2.5} />
-      <Bubble src={bubbleImages[6]} className="bottom-60 right-[10%]" delay={3} />
+      <Suspense fallback={null}>
+        {bubbleImages.map((img, index) => (
+          <Bubble 
+            key={img.src}
+            src={img.src}
+            loading={img.loading}
+            className={`top-${20 + index * 20} ${index % 2 === 0 ? 'left' : 'right'}-[${10 + index * 5}%]`}
+            delay={index * 0.5}
+          />
+        ))}
+      </Suspense>
 
       <div className="relative container mx-auto px-4 pt-32 pb-16 z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -92,21 +100,22 @@ export function Hero() {
             >
               A edição limitada que une tecnologia inovadora e o design icônico que todo mundo ama.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.7 }}
             >
-               <a href="#pricing">
-              <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-lg rounded-md">
-                Comprar Agora
-              </Button>
-               </a>
+              <a href="#pricing">
+                <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-lg rounded-md">
+                  Comprar Agora
+                </Button>
+              </a>
             </motion.div>
             <img 
               src="/header-coca.png" 
               alt="realme 10 Pro 5G Coca-Cola Edition"
+              loading="lazy"
               className="absolute -bottom-16 -left-20 w-48 opacity-60 rotate-12"
             />
           </motion.div>
@@ -119,6 +128,7 @@ export function Hero() {
             <motion.img
               src="/imagem-telefone.png"
               alt="realme 10 Pro Edição Coca-Cola"
+              loading="eager"
               className="w-full max-w-md mx-auto drop-shadow-2xl"
               animate={floatAnimation}
             />

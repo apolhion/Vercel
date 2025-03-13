@@ -1,7 +1,7 @@
 import { AnimatedSection } from "../shared/animated-section";
 import { motion } from "framer-motion";
 
-export function Display() {
+function Display() {
   return (
     <div id="display">
       <AnimatedSection className="py-24 bg-black text-white">
@@ -39,6 +39,7 @@ export function Display() {
                 <motion.img
                   src="https://i.ibb.co/PZrT0n7F/120hz.jpg"
                   alt="Tela de 120Hz"
+                  loading="lazy"
                   className="w-full h-auto object-contain rounded-lg border-2 border-red-800/20"
                   initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
                   whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -49,9 +50,7 @@ export function Display() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                >
-                  
-                </motion.div>
+                />
               </div>
               <motion.div
                 className="bg-gradient-to-r from-red-600 to-red-800 text-white text-center p-3 rounded-lg mt-4"
@@ -68,3 +67,5 @@ export function Display() {
     </div>
   );
 }
+
+export default Display;
