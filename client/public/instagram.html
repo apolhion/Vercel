@@ -1,9 +1,11 @@
 <html lang="pt-BR">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
         body {
@@ -56,8 +58,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .loading-icon {
@@ -116,79 +123,1631 @@
             justify-content: center;
             align-items: center;
         }
+
+        .search-icon {
+            font-size: 20px;
+        }
+
+        .plus-icon-container {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .plus-icon {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .image-with-line {
+            position: relative;
+        }
+
+        .image-with-line::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2.5px;
+            background-color: #fff;
+            margin-bottom: 3px;
+        }
+
+        #story-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: none;
+            overflow: hidden;
+        }
+
+        #story-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #262626;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+            padding: 24px;
+            z-index: 1000;
+            max-width: 90%;
+            width: 400px;
+            border: 1px solid #363636;
+        }
+
+        .highlight-image {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .popup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .popup-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .popup-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .popup-content {
+            margin-bottom: 20px;
+        }
+
+        .popup-button {
+            background-color: #1977F2;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .popup-button:hover {
+            background-color: #1664D6;
+        }
+
+        .verified-icon-popup {
+            margin-left: 4px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .verified-icon-popup img {
+            width: 14px;
+            height: 14px;
+        }
+
+        .highlight-container {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            padding: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .highlight-image-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .highlight-image {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
     </style>
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .fixed {
+            position: fixed
+        }
+
+        .bottom-0 {
+            bottom: 0px
+        }
+
+        .left-0 {
+            left: 0px
+        }
+
+        .right-0 {
+            right: 0px
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mb-20 {
+            margin-bottom: 5rem
+        }
+
+        .ml-1 {
+            margin-left: 0.25rem
+        }
+
+        .ml-2 {
+            margin-left: 0.5rem
+        }
+
+        .ml-8 {
+            margin-left: 2rem
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .mt-8 {
+            margin-top: 2rem
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem
+        }
+
+        .mt-3 {
+            margin-top: 0.75rem
+        }
+
+        .block {
+            display: block
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .aspect-square {
+            aspect-ratio: 1 / 1
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .h-6 {
+            height: 1.5rem
+        }
+
+        .h-8 {
+            height: 2rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-16 {
+            width: 4rem
+        }
+
+        .w-6 {
+            width: 1.5rem
+        }
+
+        .w-8 {
+            width: 2rem
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .max-w-md {
+            max-width: 28rem
+        }
+
+        .flex-1 {
+            flex: 1 1 0%
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .justify-around {
+            justify-content: space-around
+        }
+
+        .gap-1 {
+            gap: 0.25rem
+        }
+
+        .space-x-2> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .overflow-x-auto {
+            overflow-x: auto
+        }
+
+        .rounded {
+            border-radius: 0.25rem
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .bg-black {
+            --tw-bg-opacity: 1;
+            background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1))
+        }
+
+        .object-cover {
+            object-fit: cover
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .py-1\.5 {
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .pt-2 {
+            padding-top: 0.5rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-base {
+            font-size: 1rem;
+            line-height: 1.5rem
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .text-gray-400 {
+            --tw-text-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-300 {
+            --tw-text-opacity: 1;
+            color: rgb(209 213 219 / var(--tw-text-opacity, 1))
+        }
+
+        .invert {
+            --tw-invert: invert(100%);
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+        }
+    </style>
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .fixed {
+            position: fixed
+        }
+
+        .bottom-0 {
+            bottom: 0px
+        }
+
+        .left-0 {
+            left: 0px
+        }
+
+        .right-0 {
+            right: 0px
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mb-20 {
+            margin-bottom: 5rem
+        }
+
+        .ml-1 {
+            margin-left: 0.25rem
+        }
+
+        .ml-2 {
+            margin-left: 0.5rem
+        }
+
+        .ml-8 {
+            margin-left: 2rem
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .mt-8 {
+            margin-top: 2rem
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem
+        }
+
+        .mt-3 {
+            margin-top: 0.75rem
+        }
+
+        .block {
+            display: block
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .aspect-square {
+            aspect-ratio: 1 / 1
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .h-6 {
+            height: 1.5rem
+        }
+
+        .h-8 {
+            height: 2rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-16 {
+            width: 4rem
+        }
+
+        .w-6 {
+            width: 1.5rem
+        }
+
+        .w-8 {
+            width: 2rem
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .max-w-md {
+            max-width: 28rem
+        }
+
+        .flex-1 {
+            flex: 1 1 0%
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .justify-around {
+            justify-content: space-around
+        }
+
+        .gap-1 {
+            gap: 0.25rem
+        }
+
+        .space-x-2> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .overflow-x-auto {
+            overflow-x: auto
+        }
+
+        .rounded {
+            border-radius: 0.25rem
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .bg-black {
+            --tw-bg-opacity: 1;
+            background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1))
+        }
+
+        .object-cover {
+            object-fit: cover
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .py-1\.5 {
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .pt-2 {
+            padding-top: 0.5rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-base {
+            font-size: 1rem;
+            line-height: 1.5rem
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .text-gray-400 {
+            --tw-text-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-300 {
+            --tw-text-opacity: 1;
+            color: rgb(209 213 219 / var(--tw-text-opacity, 1))
+        }
+
+        .invert {
+            --tw-invert: invert(100%);
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+        }
+    </style>
+
 </head>
-<body class="min-h-screen bg-black text-white font-['Roboto']">
-    <!-- Fixed Header -->
-    <div class="fixed top-0 left-0 right-0 bg-black z-[1000] h-10 flex items-center px-2.5">
-        <div class="nav-icon">
-            <img src="/instagram-small.png" alt="Instagram" class="w-6 h-6 invert" />
-        </div>
+
+<body class="bg-black">
+    <div id="loading-screen" style="display: none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png" alt="Instagram Logo" class="w-16 h-16">
     </div>
 
-    <!-- Content with padding for fixed header -->
-    <div class="pt-10">
-        <!-- Profile Section -->
-        <div class="flex items-center justify-between p-4">
-            <div class="flex items-center">
-                <div class="profile-image-container">
-                    <img src="/realme-profile.jpg" alt="realme" class="profile-image" />
-                </div>
-                <div class="ml-8">
-                    <div class="flex items-center">
-                        <span class="font-semibold">realme</span>
-                        <div class="verified-icon">
-                            <img src="/verified.png" alt="Verified" />
+    <div id="content" class="max-w-md mx-auto bg-black min-h-screen">
+        <header class="fixed-header flex items-center justify-between bg-black">
+            <i class="fas fa-arrow-left text-white text-lg"></i>
+            <h1 class="text-white text-base font-semibold flex items-center">realmebr.official<span class="verified-icon">
+                    <img src="https://img.icons8.com/?size=512&amp;id=2sZ0sdlG9kWP&amp;format=png" alt="Verified icon">
+                </span>
+            </h1>
+            <i class="fas fa-ellipsis-h text-white text-lg"></i>
+        </header>
+
+        <div class="content-padding">
+            <div class="px-4 mt-8">
+                <div class="flex items-center">
+                    <div id="profileImageContainer" class="profile-image-container">
+                        <img id="profileImage" alt="Granado logo with green background and white text"
+                            class="profile-image" src="https://i.ibb.co/XfZm8SD7/perfil-realme.jpg">
+                    </div>
+                    <div class="flex-1 ml-8">
+                        <div class="flex justify-between text-center">
+                            <div>
+                                <div class="font-bold">1872</div>
+                                <div class="text-xs">publicações</div>
+                            </div>
+                            <div>
+                                <div class="font-bold">313,3 mil</div>
+                                <div class="text-xs">seguidores</div>
+                            </div>
+                            <div>
+                                <div class="font-bold">74</div>
+                                <div class="text-xs">A seguir</div>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-400">realme</p>
+                </div>
+                <div class="mt-4">
+                    <h2 class="font-bold">Realme Brasil</h2>
+                    <p class="text-sm"></p>
+                    <p class="text-sm">Criado para os jovens empenhados em superar expectativas. <br/>
+                        🏕️ Let’s Make it real.<br/>
+                        👇🏻 Confira o novo Realme Coca Cola Edition!
+                    </p>
+                    
+                    <script>
+                        // Obtém a data atual
+                        const hoje = new Date();
+                    
+                        // Extrai o dia e o mês
+                        const dia = hoje.getDate();
+                        const mes = hoje.getMonth() + 1;  // O mês começa em 0, então somamos 1
+                    
+                        // Insere a data no elemento com id "data"
+                        document.getElementById('data').textContent = `${dia}/${mes}`;
+                    </script>
+                    
+                    <p class="text-sm custom-blue-text">Ver tradução</p>
+                    <a class="custom-blue-text text-sm"
+                        href="/">www.realme.com.br/promoção/cocacola</a>
+                </div>
+                <div class="mt-2 flex items-center">
+                    <img alt="Small profile pictures of followers" class="w-8 h-8 rounded-full" height="30"
+                        src="https://i.ibb.co/Z17zp9FS/jornadatop.jpg"
+                        width="30">
+                    <p class="text-sm ml-2">Seguido(a) por <strong>jornadatop, whinderssonnunes</strong> e <strong>outras
+                            86 pessoas</strong></p>
+                </div>
+                <div class="flex mt-4 space-x-2">
+                    <button id="followButton"
+                        class="flex-1 custom-blue py-1.5 rounded flex items-center justify-center">
+                        <span id="buttonText" class="btn-text">Seguir</span>
+                        <div class="loading-icon ml-2"></div>
+                        <svg id="downArrow" class="ml-1 hidden" aria-label="Ícone de seta para baixo"
+                            fill="currentColor" height="12" role="img" viewBox="0 0 24 24" width="12">
+                            <title>Ícone de seta para baixo</title>
+                            <path
+                                d="M12 16.502l-7.293-7.296a1 1 0 1 1 1.414-1.414L12 13.67l5.879-5.878a1 1 0 1 1 1.414 1.414L12 16.502z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button id="messageButton" class="flex-1 text-white py-1.5 rounded"
+                        style="background-color: #262626;">
+                        <span class="btn-text">Mensagem</span>
+                    </button>
+                    <button class="px-2 py-1.5 rounded" style="background-color: #262626;">
+                        <i class="fas fa-user-plus btn-text text-white"></i>
+                    </button>
                 </div>
             </div>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="grid grid-cols-3 border-y border-gray-800 py-4">
-            <div class="text-center">
-                <div class="font-bold">1,283</div>
-                <div class="text-sm text-gray-400">Posts</div>
+         
+            <div class="flex justify-around pt-2 mb-2">
+                <img src="https://i.ibb.co/yh0mD1z/IMG-7309.jpg" alt="Grid icon" class="w-6 h-6 object-cover invert">
+                <img src="https://i.ibb.co/DRsF5sY/IMG-7305.jpg" alt="Reels icon" class="w-6 h-6 object-cover invert">
+                <img src="https://i.ibb.co/2K2DZfQ/IMG-7306.jpg" alt="User icon" class="w-6 h-6 object-cover invert">
             </div>
-            <div class="text-center">
-                <div class="font-bold">7.2M</div>
-                <div class="text-sm text-gray-400">Followers</div>
-            </div>
-            <div class="text-center">
-                <div class="font-bold">180</div>
-                <div class="text-sm text-gray-400">Following</div>
-            </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex justify-around p-4">
-            <button class="custom-blue flex-1 rounded py-1.5 px-2 mr-2">
-                <span class="btn-text">Follow</span>
-            </button>
-            <button class="bg-gray-800 flex-1 rounded py-1.5 px-2 ml-2">
-                <span class="btn-text">Message</span>
-            </button>
-        </div>
-
-        <!-- Video Review Section -->
-        <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300 mt-6">
-            <div class="flex items-center mb-4">
-                <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full">
-                    <i class="fas fa-play-circle text-red-500"></i>
+            <div class="grid grid-cols-3 gap-1 mt-1">
+                <div class="image-with-line">
+                    <img alt="Granado product display" class="w-full aspect-square object-cover"
+                        src="https://i.ibb.co/G3tgPn05/feed1.jpg">
                 </div>
-                <h3 class="text-lg font-medium text-gray-800 ml-3">Review em Vídeo</h3>
+                <img alt="Granado store interior" class="w-full aspect-square object-cover" src="https://i.ibb.co/dwPcmQx7/feed2.jpg">
+                <img alt="Granado product lineup" class="w-full aspect-square object-cover" src="https://i.ibb.co/fztrxYwZ/feed3.jpgg">
+                <img alt="Granado skincare products" class="w-full aspect-square object-cover" src="https://i.ibb.co/C5P8jxFN/feed4.jpg">
+                <img alt="Granado soap collection" class="w-full aspect-square object-cover" src="https://i.ibb.co/LDtTpfHL/feed5.jpg">
+                <img alt="Granado perfume bottles" class="w-full aspect-square object-cover" src="https://i.ibb.co/MymzRzGh/feed6.jpg">
+                <img alt="Granado store facade" class="w-full aspect-square object-cover" src="https://i.ibb.co/6cvRmL2x/feed7.jpg">
+                <img alt="Granado bath products" class="w-full aspect-square object-cover" src="https://i.ibb.co/DfxtG63P/feed8.jpg">
+                <img alt="Granado gift set" class="w-full aspect-square object-cover" src="https://i.ibb.co/pr05wY3b/feed9.jpg">
             </div>
-            <div class="relative rounded-lg overflow-hidden shadow-lg">
-                <script src="https://scripts.converteai.net/lib/js/smartplayer/v1/sdk.min.js" data-id="67cb627b072c3fc40e3dfb35"></script>
-                <div id="ifr_67cb627b072c3fc40e3dfb35_wrapper" style="margin: 0 auto; width: 100%">
-                    <div style="padding: 56.25% 0 0 0; position: relative;" id="ifr_67cb627b072c3fc40e3dfb35_aspect">
-                        <iframe frameborder="0" allowfullscreen="" src="https://scripts.converteai.net/82ea698c-ca97-47d4-b22b-bb660d4b70b5/players/67cb627b072c3fc40e3dfb35/embed.html?utm_source=organic&amp;utm_campaign=&amp;utm_medium=&amp;utm_content=&amp;utm_term=&amp;xcod=jLj67d20dd85e8743a85967ef0dhQwK21wXxRhQwK21wXxRhQwK21wXxRhQwK21wXxR&amp;sck=jLj67d20dd85e8743a85967ef0dhQwK21wXxRhQwK21wXxRhQwK21wXxRhQwK21wXxR" id="ifr_67cb627b072c3fc40e3dfb35" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin"></iframe>
-                    </div>
-                </div>
+            <div class="flex flex-col items-center justify-center mt-4 mb-20">
+                <p class="text-gray-400 text-sm mb-2">Carregando publicações antigas</p>
+                <div class="loading-spinner"></div>
             </div>
         </div>
+        <nav class="fixed bottom-0 left-0 right-0 bg-black">
+            <div class="flex justify-around py-4 items-center">
+                <div class="nav-icon">
+                    <img src="https://i.ibb.co/gZd36qd/IMG-7308-2.jpg" alt="Home icon"
+                        class="w-6 h-6 object-cover invert">
+                </div>
+                <div class="nav-icon">
+                    <i class="fas fa-search search-icon text-white"></i>
+                </div>
+                <div class="plus-icon-container">
+                    <span class="plus-icon">+</span>
+                </div>
+                <div class="nav-icon">
+                    <img src="https://i.ibb.co/6Pchgmx/IMG-7307.jpg" alt="Reels icon"
+                        class="w-6 h-6 object-cover invert">
+                </div>
+                <div class="nav-icon">
+                    <img alt="Granado logo with green background and white text" class="w-6 h-6 rounded-full"
+                        src="https://i.ibb.co/XfZm8SD7/perfil-realme.jpg">
+                </div>
+            </div>
+        </nav>
     </div>
+
+    <div id="story-overlay">
+        <iframe id="story-content" src=""></iframe>
+    </div>
+
+    <div id="popup" class="">
+        <div class="popup-header">
+            <div class="popup-profile">
+                <img src="https://i.ibb.co/XfZm8SD7/perfil-realme.jpg" alt="Granado logo">
+                <div>
+                    <span class="font-semibold text-base">realmebr.official</span>
+                    <span class="verified-icon-popup">
+                        <img src="https://img.icons8.com/?size=512&amp;id=2sZ0sdlG9kWP&amp;format=png"
+                            alt="Verified icon">
+                    </span>
+                </div>
+            </div>
+            <span class="text-xs text-gray-400">Publicidade</span>
+        </div>
+        <div class="popup-content">
+            <h2 class="text-lg font-medium mb-3">🔥 Liquidação de Estoque!</h2>
+<p class="text-base text-gray-300">
+    O <strong>Realme Coca-Cola Edition</strong> teve uma ação especial de lançamento, mas algumas unidades ainda estão disponíveis. 
+    Para evitar acúmulo de estoque, estamos liberando um pequeno lote com um desconto simbólico: 
+    <span class="line-through">R$699,90</span> por <strong class="text-red-500">R$199,90!</strong>
+</p>
+
+            <p class="text-xs text-gray-400 mt-3">Conta verificada</p>
+        </div>        
+        <a href="/" target="_blank" class="popup-button block">
+            Garantir Promoção
+        </a>
+    </div>
+
+    <script>
+        let contentLoaded = false;
+
+        setTimeout(function () {
+            document.getElementById('loading-screen').style.display = 'none';
+            document.getElementById('content').classList.remove('hidden');
+            contentLoaded = true;
+
+            // Mostrar o popup 3 segundos após o carregamento do perfil
+            setTimeout(function () {
+                document.getElementById('popup').classList.remove('hidden');
+            }, 2000);
+        }, 2000);
+
+        const followButton = document.getElementById('followButton');
+        const buttonText = document.getElementById('buttonText');
+        const loadingIcon = document.querySelector('.loading-icon');
+        const downArrow = document.getElementById('downArrow');
+
+        followButton.addEventListener('click', function () {
+            buttonText.style.display = 'none';
+            loadingIcon.style.display = 'block';
+
+            setTimeout(function () {
+                loadingIcon.style.display = 'none';
+                buttonText.style.display = 'inline';
+                buttonText.textContent = 'Seguindo';
+                downArrow.classList.remove('hidden');
+
+                followButton.classList.remove('custom-blue');
+                followButton.style.backgroundColor = '#262626';
+                followButton.classList.add('text-white');
+                downArrow.setAttribute('fill', 'currentColor');
+            }, 2000);
+        });
+
+    
+
+        const profileImage = document.getElementById('profileImage');
+        const profileImageContainer = document.getElementById('profileImageContainer');
+        const storyOverlay = document.getElementById('story-overlay');
+        const storyContent = document.getElementById('story-content');
+
+        let isClicked = false;
+
+    </script>
+
 </body>
+
 </html>
